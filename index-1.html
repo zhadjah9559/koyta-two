@@ -40,7 +40,7 @@
 				<div class="container">
 					<a class="navbar-brand" href="../index.html">
 						<img src="assets/img/Eleonora.png" class="logo-display" alt="Itsol">
-						<img src="assets/img/logo/logo-dark.png" class="logo-scrolled" alt="Itsol">
+						<img src="assets/img/Eleonora Black.png" class="logo-scrolled" alt="Itsol">
 					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"><i class="ti-menu-alt"></i></span>
@@ -205,8 +205,6 @@
 		</div>
 		<!-- End About -->
 		
-		
-		
 		<!-- Start Contact
 		============================================= -->
 		<div id="contact" class="contact-area de-pt wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
@@ -366,6 +364,61 @@
 	<script src=" assets/js/YTPlayer.min.js"></script>
 	<script src=" assets/js/active-class.js"></script>
     <script src=" assets/js/main.js"></script>	
+
+
+	<!--EmailJS BEGINNING-->
+	<script	type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+  	<script type="text/javascript">
+		emailjs.init("user_6QJaunDGy0xqYrVJn5n8d");
+  	</script>
+
+  
+	<script>
+		const btn = document.getElementById("button");
+
+	document
+	  .getElementById("form")
+	  .addEventListener("submit", function (event) {
+		event.preventDefault();
+
+		btn.value = "Sending...";
+
+		const serviceID = "default_service";
+		const templateID = "template_4l2cxg2";
+
+		emailjs.sendForm(serviceID, templateID, this).then(
+		  () => {
+			btn.value = "Send Email";
+			//SweetAlert2 code
+			 Swal.fire({
+			  title:'Thanks for the message!',
+			  text:'I will respond back ASAP!',
+			  imageUrl: 'images/tenor.gif'
+		  }); 
+		  document.getElementById('form').reset()
+		  },
+		  (err) => {
+			btn.value = "Send Email";
+			alert(JSON.stringify(err));
+		  }
+		);
+	  });
+  </script>
+  <!--EmailJS BEGINNING-->
+
+
+ 
+
+<!--Sweet Alert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!--Sweet Alert-->
+
+
+
+
+
+
 </body>
 
 </html>
